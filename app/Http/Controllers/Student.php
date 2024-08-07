@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ActivityModel;
-use App\Models\StudentDetailModel;
 use App\Models\StudentModel;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Student extends Controller
 {
-
     public function index()
     {
+        $user = Auth::user();
+        $id = Auth::id();
         $data = StudentModel::paginate(10);
 
-        return view('student-table', ['data' => $data]);
+        return view('student-table', ['data' => $data, 'user' => $user, 'id' => $id]);
     }
 
     function filter()

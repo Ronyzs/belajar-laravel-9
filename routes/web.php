@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Student;
 use App\Http\Controllers\Teacher;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/students', [Student::class, 'index']);
+Route::get('/', [Student::class, 'index']);
 Route::get('/students/filter', [Student::class, 'filter']);
 
 Route::get('/students/{num}', [Student::class, 'show']);
@@ -27,3 +28,7 @@ Route::get('/students/{num}', [Student::class, 'show']);
 Route::get('/teacher/{num}', [Teacher::class, 'index']);
 
 Route::get('/student/activity/{num}', [Student::class, 'studentActivity']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
