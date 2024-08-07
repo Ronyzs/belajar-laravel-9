@@ -21,7 +21,7 @@ class StudentSeeder extends Seeder
         for ($i = 0; $i < 50; $i++) {
             $data = [
                 'nama' => $faker->name,
-                'score' => $faker->numberBetween(18, 60),
+                'score' => $faker->numberBetween(0, 100),
                 'teacher_id' => $faker->numberBetween(1, 2),
             ];
 

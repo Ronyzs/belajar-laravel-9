@@ -16,6 +16,13 @@ class Student extends Controller
 
         return view('student-table', ['data' => $data]);
     }
+
+    function filter()
+    {
+        $students = StudentModel::where('score', '>=', 60)->get();
+
+        return view('student-table-filter', ['students' => $students]);
+    }
     public function show($id)
     {
         $data = StudentModel::find($id)->studentDetail;

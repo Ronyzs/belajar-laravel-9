@@ -20,6 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('/students', [Student::class, 'index']);
+Route::get('/students/filter', [Student::class, 'filter']);
+
 Route::get('/students/{num}', [Student::class, 'show']);
 
 Route::get('/teacher/{num}', [Teacher::class, 'index']);
