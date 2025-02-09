@@ -9,10 +9,8 @@ class TeacherModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'teachers';
-
     public function student()
     {
-        return $this->hasMany(StudentModel::class, 'teacher_id');
+        return $this->hasMany(Student::class, 'teacher_id');
     }
 }

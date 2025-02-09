@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +19,7 @@ class ActivitySeeder extends Seeder
 
         for ($i = 0; $i < 10; $i++) {
             $data = [
-                'activity' => $faker->word,
+                'activity' => $faker->word(),
             ];
 
             DB::table('activities')->insert($data);

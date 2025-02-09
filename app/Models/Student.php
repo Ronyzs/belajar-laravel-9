@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class StudentModel extends Model
+class Student extends Model
 {
     use HasFactory;
-
-    protected $table = 'students';
 
     public function studentDetail()
     {
@@ -23,6 +21,6 @@ class StudentModel extends Model
 
     public function activities()
     {
-        return $this->belongsToMany(ActivityModel::class, 'activity_student', 'student_id', 'activity_id');
+        return $this->belongsToMany(Activity::class);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Student;
+use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Teacher;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -20,14 +21,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [Student::class, 'index']);
-Route::get('/students/filter', [Student::class, 'filter']);
+Route::get('/', [StudentController::class, 'index']);
+Route::get('/students/filter', [StudentController::class, 'filter']);
 
-Route::get('/students/{num}', [Student::class, 'show']);
+Route::get('/students/{num}', [StudentController::class, 'show']);
 
 Route::get('/teacher/{num}', [Teacher::class, 'index']);
 
-Route::get('/student/activity/{num}', [Student::class, 'studentActivity']);
+Route::get('/student/activity/{num}', [StudentController::class, 'studentActivity']);
+
+Route::get('/activity/{num}', [ActivityController::class, 'show']);
 
 Auth::routes();
 
